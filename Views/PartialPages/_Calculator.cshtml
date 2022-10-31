@@ -56,6 +56,14 @@ ignores it.
 function allowDrop(ev) {
   ev.preventDefault();
 }
+<?php
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+
+$time = date('r');
+echo "data: The server time is: {$time}\n\n";
+flush();
+?>
 
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
